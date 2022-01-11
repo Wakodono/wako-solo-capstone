@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className="logo-container">
                 <Avatar src={icon} size="large"/>
                 <Typography.Title level={2} className="logo">
-                    <Link to="/">Crypto App</Link>
+                    <Link to="/">CoinView</Link>
                 </Typography.Title>
                 {/* <Button className="menu-control-container"></Button> */}
             </div>
