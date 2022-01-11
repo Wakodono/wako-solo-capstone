@@ -10,7 +10,11 @@ const App = () => {
             <div className="navbar">
                 <Navbar />
             </div>
-            <div className="main"></div>
+            <div className="main">
+              <Layout>
+                
+              </Layout>
+            </div>
             <div className="footer"></div>
         </div>
     )
