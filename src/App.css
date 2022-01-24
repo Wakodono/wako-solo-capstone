@@ -1,9 +1,10 @@
+@import '~antd/dist/antd.dark.css'; 
 
 :root{
     --text-primary:#000;
     --bgPrimary:#fff;
    --bgSecondary: #F9F9F9;
-   --pink: #0071bd;
+   --pink: #6f6674;
    --light-blue: #e6f7ff;
    --border: #d9d9d9;
 }
@@ -13,6 +14,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 
 a:hover{
     color: var(--pink) !important;
