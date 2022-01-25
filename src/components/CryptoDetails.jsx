@@ -14,6 +14,8 @@ const CryptoDetails = () => {
     const [timePeriod, setTimePeriod] = useState('7d')
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
 
+    if(isFetching) return 'Loading...'
+
     console.log("THE DATA SHOULD BE RIGHT HERE!!", data)
     
     const cryptoDetails = data?.data?.coin
