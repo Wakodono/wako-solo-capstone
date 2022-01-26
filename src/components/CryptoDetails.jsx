@@ -6,6 +6,7 @@ import { Col, Row, Typography, Select } from 'antd'
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, ThunderboltOutlined, NumberOutlined, CheckOutlined } from '@ant-design/icons'
 
 import { useGetCryptoDetailsQuery } from '../services/cryptoApi.js'
+
 const { Title, Text } = Typography
 const { Option } = Select
 
@@ -47,7 +48,7 @@ const CryptoDetails = () => {
                 </Title>
                 <p>
                     {cryptoDetails.name} live price in USD.
-                    View value statistics, market cap and supply
+                    View value statistics, market cap and supply.
                 </p>
             </Col>
             <Select 
@@ -102,12 +103,13 @@ const CryptoDetails = () => {
                         </Col>
                     ))}
                 </Col>
-                <Col className="coin-desc-link">
+            </Col>
+            <Col className="coin-desc-link">
                     <Row className="coin-desc">
                         <Title level={3} className='coin-details-heading'>
                             What is {cryptoDetails.name}?
                         </Title>
-                            {HTMLReactParser(cryptoDetails.description)}
+                        {HTMLReactParser(cryptoDetails.description)}
                     </Row>
                     <Col className="coin-links">
                         <Title level={3} className="coin-details-heading">
@@ -125,7 +127,6 @@ const CryptoDetails = () => {
                         ))}
                     </Col>
                 </Col>
-            </Col>
         </Col>
     )
 }
