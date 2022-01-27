@@ -20,10 +20,13 @@ const CryptoDetails = () => {
     if(isFetching) return 'Loading...'
 
     // console.log("THE DATA SHOULD BE RIGHT HERE!!", data)
+    
+    if(!coinHistory) return 'Loading...'
 
     console.log("COIN HISTORY", coinHistory)
     
     const cryptoDetails = data?.data?.coin
+
 
 
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
@@ -78,8 +81,8 @@ const CryptoDetails = () => {
                             A statistical overview for {cryptoDetails.name}
                         </p>
                     </Col>
-                    {stats.map(({ icon, title, value }) => (
-                        <Col className="coin-stats">
+                    {stats.map(({ icon, title, value, i }) => (
+                        <Col className="coin-stats" key={i}>
                             <Col className="coin-stats-name">
                                 <Title>{icon}</Title>
                                 <Title>{title}</Title>
@@ -97,8 +100,8 @@ const CryptoDetails = () => {
                             A statistical overview for all coins
                         </p>
                     </Col>
-                    {genericStats.map(({ icon, title, value }) => (
-                        <Col className="coin-stats">
+                    {genericStats.map(({ icon, title, value, i }) => (
+                        <Col className="coin-stats" key={i}>
                             <Col className="coin-stats-name">
                                 <Title>{icon}</Title>
                                 <Title>{title}</Title>
