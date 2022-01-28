@@ -19,11 +19,13 @@ const CryptoDetails = () => {
 
     if(isFetching) return 'Loading...'
 
+
     // console.log("THE DATA SHOULD BE RIGHT HERE!!", data)
     
     if(!coinHistory) return 'Loading...'
 
     console.log("COIN HISTORY", coinHistory)
+
     
     const cryptoDetails = data?.data?.coin
 
