@@ -24,7 +24,7 @@ const CryptoDetails = () => {
     
     if(!coinHistory) return 'Loading...'
 
-    console.log("COIN HISTORY", coinHistory)
+    // console.log("COIN HISTORY", coinHistory)
 
     
     const cryptoDetails = data?.data?.coin
