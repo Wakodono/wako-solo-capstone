@@ -24,7 +24,7 @@ const CryptoDetails = () => {
     
     if(!coinHistory) return 'Loading...'
 
-    console.log("COIN HISTORY", coinHistory)
+    // console.log("COIN HISTORY", coinHistory)
 
     
     const cryptoDetails = data?.data?.coin
@@ -83,8 +83,8 @@ const CryptoDetails = () => {
                             A statistical overview for {cryptoDetails.name}
                         </p>
                     </Col>
-                    {stats.map(({ icon, title, value, i }) => (
-                        <Col className="coin-stats" key={i}>
+                    {stats.map(({ icon, title, value }) => (
+                        <Col className="coin-stats">
                             <Col className="coin-stats-name">
                                 <Title>{icon}</Title>
                                 <Title>{title}</Title>
@@ -102,8 +102,8 @@ const CryptoDetails = () => {
                             A statistical overview for all coins
                         </p>
                     </Col>
-                    {genericStats.map(({ icon, title, value, i }) => (
-                        <Col className="coin-stats" key={i}>
+                    {genericStats.map(({ icon, title, value }) => (
+                        <Col className="coin-stats">
                             <Col className="coin-stats-name">
                                 <Title>{icon}</Title>
                                 <Title>{title}</Title>
