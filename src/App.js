@@ -26,8 +26,8 @@ const App = () => {
             <div className="footer">
                 <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
                     CoinView <br />
-                    Wako Anindo 2022
                 </Typography.Title>
+                    Wako Anindo 2022
                 <Space>
                     <Link to="/">Home</Link>
                     <Link to="/exchanges">Exchanges</Link>
