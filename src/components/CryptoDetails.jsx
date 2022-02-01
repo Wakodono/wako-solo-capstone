@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom'
 import millify from 'millify'
 import { Col, Row, Typography, Select } from 'antd'
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, ThunderboltOutlined, NumberOutlined, CheckOutlined } from '@ant-design/icons'
+
 import LineChart from './LineChart'
+import Loader from './Loader'
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi.js'
 
@@ -17,12 +19,12 @@ const CryptoDetails = () => {
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
     const { data: coinHistory } = useGetCryptoHistoryQuery({coinId, timeperiod})
 
-    if(isFetching) return 'Loading...'
+    if(isFetching) return <Loader />
 
 
     // console.log("THE DATA SHOULD BE RIGHT HERE!!", data)
     
-    if(!coinHistory) return 'Loading...'
+    if(!coinHistory) return <Loader />
 
     // console.log("COIN HISTORY", coinHistory)
 
