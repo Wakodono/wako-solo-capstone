@@ -10,44 +10,46 @@ import {
   Checkbox,
   Button,
   AutoComplete,
+  Upload,
 } from 'antd';
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons'
 
 const { Option } = Select;
 
-const residences = [
-  {
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [
-      {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [
-      {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
-      },
-    ],
-  },
-];
+// const residences = [
+//   {
+//     value: 'zhejiang',
+//     label: 'Zhejiang',
+//     children: [
+//       {
+//         value: 'hangzhou',
+//         label: 'Hangzhou',
+//         children: [
+//           {
+//             value: 'xihu',
+//             label: 'West Lake',
+//           },
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     value: 'jiangsu',
+//     label: 'Jiangsu',
+//     children: [
+//       {
+//         value: 'nanjing',
+//         label: 'Nanjing',
+//         children: [
+//           {
+//             value: 'zhonghuamen',
+//             label: 'Zhong Hua Men',
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// ];
 
 const formItemLayout = {
   labelCol: {
@@ -67,7 +69,6 @@ const formItemLayout = {
     },
   },
 };
-
 const tailFormItemLayout = {
   wrapperCol: {
     xs: {
@@ -80,6 +81,16 @@ const tailFormItemLayout = {
     },
   },
 };
+
+const normFile = (e) => {
+    console.log('Upload event:', e);
+  
+    if (Array.isArray(e)) {
+      return e;
+    }
+  
+    return e && e.fileList;
+  };
 
 const Register = () => {
   const [form] = Form.useForm();
@@ -126,6 +137,7 @@ const Register = () => {
     label: website,
     value: website,
   }));
+
   return (
     <Form
       {...formItemLayout}
@@ -199,7 +211,7 @@ const Register = () => {
         tooltip="What do you want others to call you?"
         rules={[
           {
-            required: true,
+            required: false,
             message: 'Please input your nickname!',
             whitespace: true,
           },
@@ -227,7 +239,7 @@ const Register = () => {
         label="Phone Number"
         rules={[
           {
-            required: true,
+            required: false,
             message: 'Please input your phone number!',
           },
         ]}
@@ -263,7 +275,7 @@ const Register = () => {
         label="Website"
         rules={[
           {
-            required: true,
+            required: false,
             message: 'Please input website!',
           },
         ]}
@@ -273,7 +285,7 @@ const Register = () => {
         </AutoComplete>
       </Form.Item>
 
-      <Form.Item
+      {/* <Form.Item
         name="intro"
         label="Intro"
         rules={[
@@ -284,14 +296,14 @@ const Register = () => {
         ]}
       >
         <Input.TextArea showCount maxLength={100} />
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item
         name="gender"
         label="Gender"
         rules={[
           {
-            required: true,
+            required: false,
             message: 'Please select gender!',
           },
         ]}
@@ -300,10 +312,11 @@ const Register = () => {
           <Option value="male">Male</Option>
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>
+          <Option value="other">Prefer not to say</Option>
         </Select>
       </Form.Item>
 
-      <Form.Item label="Captcha" extra="We must make sure that your are a human.">
+      {/* <Form.Item label="Captcha" extra="We must make sure that your are a human.">
         <Row gutter={8}>
           <Col span={12}>
             <Form.Item
@@ -323,7 +336,30 @@ const Register = () => {
             <Button>Get captcha</Button>
           </Col>
         </Row>
+      </Form.Item> */}
+
+    <Form.Item
+        name="upload"
+        label="Upload Avatar"
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+      >
+        <Upload name="logo" action="/upload.do" listType="picture">
+          <Button icon={<UploadOutlined />}>Click to upload a profile picture</Button>
+        </Upload>
       </Form.Item>
+
+      {/* <Form.Item label="Dragger">
+        <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+          <Upload.Dragger name="files" action="/upload.do">
+            <p className="ant-upload-drag-icon">
+              <InboxOutlined />
+            </p>
+            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+          </Upload.Dragger>
+        </Form.Item>
+      </Form.Item> */}
 
       <Form.Item
         name="agreement"
