@@ -79,6 +79,14 @@ a:hover{
     align-items: center;
 }
 
+.register-form-container{
+    justify-content: center;
+}
+
+.login-form-container{
+    justify-content: center;
+}
+
 @media screen and (max-width:1300px){
     .main{
         margin-left: 50px;
