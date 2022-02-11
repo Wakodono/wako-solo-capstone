@@ -270,9 +270,9 @@ a:hover{
     font-size: 1rem;
 }
 
-.coin-link:hover, .coin-stats:hover{
+/* .coin-link:hover, .coin-stats:hover{
     background-color: var(--bgSecondary);
-}
+} */
 
 @media screen and (max-width:1000px){
     .stats-container{
