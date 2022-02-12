@@ -1,8 +1,18 @@
 import React from 'react'
+import { SocialIcon } from 'react-social-icons'
 import { Layout, Typography, Space } from 'antd'
 import { Routes, Route, Link } from 'react-router-dom'
 
-import { Navbar, Homepage, Cryptocurrencies, Exchanges, CryptoDetails, News } from './components'
+import { 
+    Navbar, 
+    Homepage, 
+    Cryptocurrencies, 
+    Exchanges, 
+    CryptoDetails, 
+    News, 
+    Login, 
+    Register, 
+} from './components'
 import './App.css'
 
 const App = () => {
@@ -20,17 +30,24 @@ const App = () => {
                         <Route path="/exchanges" exact element={<Exchanges />} />
                         <Route path="/crypto/:coinId" exact element={<CryptoDetails />} />
                         <Route path="/news" exact element={<News />} />
+                        <Route path="/login" exact element={<Login />} />
+                        <Route path="/register" exact element={<Register />} />
                     </Routes>
                 </div>
               </Layout>
             <div className="footer">
                 <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
                     CoinView <br />
-                    Wako Anindo 2022
                 </Typography.Title>
+                    Wako Anindo 2022 
+                <Space>
+                    <SocialIcon url="https://github.com/Wakodono" />
+                    <SocialIcon url="https://instagram.com/wako_iii" />
+                    <SocialIcon url="https://www.linkedin.com/in/wako-anindo-02341455/" />
+                </Space>
                 <Space>
                     <Link to="/">Home</Link>
-                    <Link to="/exchanges">Exchanges</Link>
+                    {/* <Link to="/exchanges">Exchanges</Link> */}
                     <Link to="/news">News</Link>
                 </Space>
             </div>
