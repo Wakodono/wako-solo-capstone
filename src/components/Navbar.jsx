@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Menu, Typography, Avatar } from 'antd'
+import { BulbOutlined, FundOutlined, HomeOutlined, MenuOutlined } from '@ant-design/icons'
+import { Avatar, Button, Menu, Typography } from 'antd'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
-
 import icon from '../images/bitcoin.png'
+
 
 const Navbar = () => {
     const [activeMenu, setActiveMenu ] = useState(true)
