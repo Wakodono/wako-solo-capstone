@@ -39,12 +39,14 @@ const App = () => {
                 <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
                     CoinView <br />
                 </Typography.Title>
+                <p>
                     Wako Anindo 2022 
-                <Space>
+                </p>
+                <p>
                     <SocialIcon url="https://github.com/Wakodono" />
                     <SocialIcon url="https://instagram.com/wako_iii" />
                     <SocialIcon url="https://www.linkedin.com/in/wako-anindo-02341455/" />
-                </Space>
+                </p>
                 <Space>
                     <Link to="/">Home</Link>
                     {/* <Link to="/exchanges">Exchanges</Link> */}
