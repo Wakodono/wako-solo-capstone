@@ -11,7 +11,8 @@ import {
     CryptoDetails, 
     News, 
     Login, 
-    Register, 
+    Register,
+    ScrollToTop, 
 } from './components'
 import './App.css'
 
@@ -53,6 +54,7 @@ const App = () => {
                     <Link to="/news">News</Link>
                 </Space>
             </div>
+            <ScrollToTop />
             </div>
         </div>
     )
