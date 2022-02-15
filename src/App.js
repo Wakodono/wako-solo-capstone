@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SocialIcon } from 'react-social-icons'
 import { Layout, Typography, Space } from 'antd'
 import { Routes, Route, Link } from 'react-router-dom'
@@ -12,11 +12,14 @@ import {
     News, 
     Login, 
     Register,
-    ScrollToTop, 
+    ScrollToTop,
+    ScrollToTopButton, 
 } from './components'
 import './App.css'
 
+
 const App = () => {
+
     return (
         <div className="app">
             <div className="navbar">
@@ -35,7 +38,7 @@ const App = () => {
                         <Route path="/register" exact element={<Register />} />
                     </Routes>
                 </div>
-                <ScrollToTop />
+                <ScrollToTopButton />
               </Layout>
             <div className="footer">
                 <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
