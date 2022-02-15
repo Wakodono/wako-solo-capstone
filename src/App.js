@@ -35,6 +35,7 @@ const App = () => {
                         <Route path="/register" exact element={<Register />} />
                     </Routes>
                 </div>
+                <ScrollToTop />
               </Layout>
             <div className="footer">
                 <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
@@ -54,7 +55,6 @@ const App = () => {
                     <Link to="/news">News</Link>
                 </Space>
             </div>
-            <ScrollToTop />
             </div>
         </div>
     )
