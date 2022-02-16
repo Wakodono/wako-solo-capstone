@@ -48,9 +48,9 @@ const App = () => {
                     Wako Anindo 2022 
                 </p>
                 <p>
-                    <SocialIcon url="https://github.com/Wakodono" />
-                    <SocialIcon url="https://instagram.com/wako_iii" />
-                    <SocialIcon url="https://www.linkedin.com/in/wako-anindo-02341455/" />
+                    <SocialIcon url="https://github.com/Wakodono" style={{ margin: "12px" }}/>
+                    <SocialIcon url="https://instagram.com/wako_iii" style={{ margin: "12px" }} />
+                    <SocialIcon url="https://www.linkedin.com/in/wako-anindo-02341455/" style={{ margin: "12px" }} />
                 </p>
                 <Space>
                     <Link to="/">Home</Link>
