@@ -2,6 +2,8 @@
 
 This is CoinView! A cryptocurrency dashboard for all trading enthusiasts.
 
+<img width="1909" alt="image" src="https://github.com/Wakodono/wako-solo-capstone/assets/53127265/21483887-1bcb-4fb7-ac8b-7302ebab467c">
+
 ## Available Scripts
 
 In the project directory, you can run:
