@@ -1,6 +1,6 @@
 # Coinview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is CoinView! A cryptocurrency dashboard for all trading enthusiasts.
 
 ## Available Scripts
 
