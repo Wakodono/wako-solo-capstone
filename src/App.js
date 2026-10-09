@@ -7,7 +7,6 @@ import {
     Navbar, 
     Homepage, 
     Cryptocurrencies, 
-    Exchanges, 
     CryptoDetails, 
     News, 
     Login, 
@@ -31,7 +30,6 @@ const App = () => {
                     <Routes>
                         <Route path="/" exact element={<Homepage />} />
                         <Route path="/cryptocurrencies" exact element={<Cryptocurrencies />} />
-                        <Route path="/exchanges" exact element={<Exchanges />} />
                         <Route path="/crypto/:coinId" exact element={<CryptoDetails />} />
                         <Route path="/news" exact element={<News />} />
                         <Route path="/login" exact element={<Login />} />
@@ -54,7 +52,6 @@ const App = () => {
                 </p>
                 <Space>
                     <Link to="/">Home</Link>
-                    {/* <Link to="/exchanges">Exchanges</Link> */}
                     <Link to="/news">News</Link>
                 </Space>
             </div>
