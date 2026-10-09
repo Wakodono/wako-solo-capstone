@@ -25,3 +25,16 @@ CoinView is your one-stop-shop for crytpcurrency information and news.
 ## 🚀 Quick Start
 
 Navigate to https://coinview-react.netlify.app
+
+## How it works
+
+The React app (Redux Toolkit Query, Ant Design, Chart.js) gets all its data from the [CoinView backend](https://github.com/Wakodono/wako-solo-capstone-be):
+
+- **Coin prices and history** come from Coinranking. The backend calls it with the RapidAPI key, so the key never reaches the browser.
+- **News** is pulled from the CoinDesk, Cointelegraph and Decrypt RSS feeds. It used to come from the Bing News Search API, which Microsoft retired in 2025.
+
+## Running locally
+
+1. Start the backend (see its README) on port 3001.
+2. Copy `.env.example` to `.env` and set `REACT_APP_API_URL` to the backend URL.
+3. `npm install` then `npm start`.

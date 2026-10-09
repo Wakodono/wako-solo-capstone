@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Select, Typography, Row, Col, Avatar, Card } from 'antd'
+import { Select, Typography, Row, Col, Card, Empty } from 'antd'
 import moment from 'moment'
 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
@@ -14,10 +14,12 @@ const demoImage = 'http://coinrevolution.com/wp-content/uploads/2020/06/cryptone
 
 const News = ({ simplified }) => {
     const [newsCategory, setNewsCategory] = useState('Cryptocurrency')
-    const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 })
+    const { data: cryptoNews, isLoading, isError } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 })
     const { data } = useGetCryptosQuery(100)
 
-    if(!cryptoNews?.value) return <Loader />
+    if(isLoading) return <Loader />
+
+    const articles = cryptoNews?.articles || []
 
     return (
         <Row gutter={[ 24, 24 ]}>
@@ -36,28 +38,30 @@ const News = ({ simplified }) => {
                     </Select>
                 </Col>
             )}
-            {cryptoNews.value.map((news, i) => (
-                <Col xs={24} sm={12} lg={8} key={i}>
+            {(isError || articles.length === 0) && (
+                <Col span={24}>
+                    <Empty description={isError ? 'News is unavailable right now.' : `No recent news about ${newsCategory}.`} />
+                </Col>
+            )}
+            {articles.map((news) => (
+                <Col xs={24} md={12} xxl={8} key={news.url}>
                     <Card hoverable className="news-card">
                         <a href={news.url} target="_blank" rel="noreferrer">
                             <div className="news-image-container">
-                                <Title className="news-title" level={4}>{news.name}</Title>
-                                <img style={{ maxWidth: '200px', maxHeight: '100px'}} src={news?.image?.thumbnail?.contentUrl || demoImage } alt="news" />
+                                <Title className="news-title" level={4}>{news.title}</Title>
+                                <img src={news.image || demoImage } alt="news" />
                             </div>
                         </a>
                         <p>
-                            {news.description > 100 
+                            {news.description.length > 100 
                             ? `${news.description.substring(0, 100)} ...`
                             : news.description
 
                             }
                         </p>
                         <div className="provider-container">
-                            <div>
-                                <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt="" />
-                                <Text className="provider-name">{news.provider[0]?.name}</Text>
-                            </div>
-                                <Text>{moment(news.datePublished).startOf('ss').fromNow()}</Text>
+                            <Text>{news.source}</Text>
+                            <Text>{moment(news.publishedAt).startOf('ss').fromNow()}</Text>
                         </div>
                     </Card>
                 </Col>

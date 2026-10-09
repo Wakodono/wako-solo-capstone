@@ -1,6 +1,6 @@
 import React from 'react'
 import millify from 'millify'
-import { Typography, Row, Col, Statistic } from 'antd'
+import { Typography, Row, Col, Statistic, Empty } from 'antd'
 import { Link } from 'react-router-dom'
 
 import { useGetCryptosQuery } from '../services/cryptoApi'
@@ -16,18 +16,23 @@ const Homepage = () => {
 
     const globalStats = data?.data?.stats
 
-    if(isFetching) return <Loader />
-    
+    // Only the stats show a loader: unmounting the sections below makes RTK Query refetch a failed request on remount, in a loop.
     return (
         <>
             <Title level={2} className="heading">Global Statistics</Title>
-            <Row>
-                <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total}/> </Col>
-                <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)}/> </Col>
-                <Col span={12}><Statistic title="Total Market Cap" value={millify(globalStats.totalMarketCap)}/> </Col>
-                <Col span={12}><Statistic title="Total 24h Volume" value={millify(globalStats.total24hVolume)}/> </Col>
-                <Col span={12}><Statistic title="Total Markets" value={millify(globalStats.totalMarkets)}/> </Col>
-            </Row>
+            {isFetching ? (
+                <Loader />
+            ) : globalStats ? (
+                <Row>
+                    <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total}/> </Col>
+                    <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)}/> </Col>
+                    <Col span={12}><Statistic title="Total Market Cap" value={millify(globalStats.totalMarketCap)}/> </Col>
+                    <Col span={12}><Statistic title="Total 24h Volume" value={millify(globalStats.total24hVolume)}/> </Col>
+                    <Col span={12}><Statistic title="Total Markets" value={millify(globalStats.totalMarkets)}/> </Col>
+                </Row>
+            ) : (
+                <Empty description="Coin data is unavailable right now." />
+            )}
             <div className="home-heading-container">
                 <Title level={2} className="home-title">Top 10 Coins in the world</Title>
                 <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show More</Link></Title>
