@@ -1,27 +1,72 @@
-# Coinview
+# CoinView
 
-## Introduction
+A cryptocurrency information dashboard built with React. Developed as a solo capstone project for Strive School.
 
-This is CoinView! A cryptocurrency dashboard for all trading enthusiasts.
+<img width="1909" alt="CoinView homepage showing global statistics and top cryptocurrencies" src="https://github.com/Wakodono/wako-solo-capstone/assets/53127265/21483887-1bcb-4fb7-ac8b-7302ebab467c">
 
-<img width="1909" alt="image" src="https://github.com/Wakodono/wako-solo-capstone/assets/53127265/21483887-1bcb-4fb7-ac8b-7302ebab467c">
+## What This Project Demonstrates
 
+This frontend application fetches and displays cryptocurrency market data and news from third-party APIs. The implementation uses:
 
-## Motivation
+- **React 17** with functional components and hooks (`useState`, `useEffect`, `useParams`)
+- **Redux Toolkit** with RTK Query for API state management—see `src/app/store.js` and `src/services/`
+- **Ant Design** component library for layout, forms, cards, navigation, and theming (`antd` dark theme)
+- **Chart.js** via `react-chartjs-2` for rendering price history line charts—see `src/components/LineChart.jsx`
+- **React Router v6** for client-side routing between views
 
-I'm sure many of us have had this thought "I should invest my money 🤔" 
+## Features
 
-One of the biggest things that hold many of us back is knowlege.
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Global crypto statistics | Implemented | Homepage displays totals from Coinranking API |
+| Cryptocurrency list | Implemented | Searchable grid of coins with price, market cap, daily change |
+| Coin detail view | Implemented | Price chart with selectable time periods, statistics, description, external links |
+| News feed | Implemented | Filterable by coin via Bing News Search API |
+| Responsive layout | Implemented | Mobile navigation with hamburger menu |
+| Login/Register forms | UI only | Forms render but are not connected to authentication |
+| Exchanges page | Incomplete | Route exists; page displays placeholder text only |
 
-* Where do I invest?
-* What do I invest in?
-* Why should I invest in it?
-* Is it safe?
+## Project Structure
 
-One of the best ways to answer some of these questions is to learn as much as possible about an asset.
+```
+src/
+├── app/store.js           # Redux store with RTK Query middleware
+├── components/            # React components (Homepage, Cryptocurrencies, CryptoDetails, News, etc.)
+├── services/
+│   ├── cryptoApi.js       # RTK Query API for Coinranking endpoints
+│   └── cryptoNewsApi.js   # RTK Query API for Bing News Search
+└── App.js                 # Main app with routing
+```
 
-CoinView is your one-stop-shop for crytpcurrency information and news.
+## Related Repository
 
-## 🚀 Quick Start
+Backend repository: [wako-solo-capstone-be](https://github.com/Wakodono/wako-solo-capstone-be)
 
-Navigate to https://coinview-react.netlify.app
+## Running Locally
+
+Requires Node.js and npm. The application depends on RapidAPI for data.
+
+```bash
+npm install
+npm start
+```
+
+The following environment variables must be set (create a `.env` file in the project root):
+
+```
+REACT_APP_CRYPTO_RAPIDAPI_HOST=<coinranking API host>
+REACT_APP_RAPIDAPI_KEY=<your RapidAPI key>
+REACT_APP_CRYPTO_API_URL=<coinranking API base URL>
+REACT_APP_NEWS_RAPIDAPI_HOST=<Bing News Search API host>
+REACT_APP_NEWS_API_URL=<Bing News Search API base URL>
+```
+
+Without valid API credentials, the application will not display data.
+
+## Deployed Version
+
+A build was previously deployed to https://coinview-react.netlify.app. Functionality depends on whether the required API keys remain configured in the deployment environment.
+
+---
+
+Wako Anindo · 2022 · Strive School Solo Capstone
