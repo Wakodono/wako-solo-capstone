@@ -16,15 +16,20 @@ This frontend application fetches and displays cryptocurrency market data and ne
 
 ## Features
 
-| Feature | Status | Notes |
-|---------|--------|-------|
-| Global crypto statistics | Implemented | Homepage displays totals from Coinranking API |
-| Cryptocurrency list | Implemented | Searchable grid of coins with price, market cap, daily change |
-| Coin detail view | Implemented | Price chart with selectable time periods, statistics, description, external links |
-| News feed | Implemented | Filterable by coin via Bing News Search API |
-| Responsive layout | Implemented | Mobile navigation with hamburger menu |
-| Login/Register forms | UI only | Forms render but are not connected to authentication |
-| Exchanges page | Incomplete | Route exists; page displays placeholder text only |
+The following features are present in the source code (based on source review; end-to-end functionality not tested):
+
+| Feature | Notes |
+|---------|-------|
+| Global crypto statistics | Homepage displays totals from Coinranking API |
+| Cryptocurrency list | Searchable grid of coins with price, market cap, daily change |
+| Coin detail view | Price chart with selectable time periods, statistics, description, external links |
+| News feed | Filterable by coin via Bing News Search API |
+| Responsive layout | Mobile navigation with hamburger menu |
+
+### Limitations
+
+- **Login/Register**: Form UI exists but is not connected to authentication—submissions log to console only
+- **Exchanges page**: Route exists but displays placeholder text; implementation incomplete
 
 ## Project Structure
 
@@ -44,7 +49,7 @@ Backend repository: [wako-solo-capstone-be](https://github.com/Wakodono/wako-sol
 
 ## Running Locally
 
-Requires Node.js and npm. The application depends on RapidAPI for data.
+Requires Node.js and npm. The application depends on external APIs via RapidAPI.
 
 ```bash
 npm install
@@ -61,12 +66,10 @@ REACT_APP_NEWS_RAPIDAPI_HOST=<Bing News Search API host>
 REACT_APP_NEWS_API_URL=<Bing News Search API base URL>
 ```
 
-Without valid API credentials, the application will not display data.
-
 ## Deployed Version
 
-A build was previously deployed to https://coinview-react.netlify.app. Functionality depends on whether the required API keys remain configured in the deployment environment.
+A build was previously deployed to https://coinview-react.netlify.app. Runtime behaviour and API availability have not been verified.
 
 ---
 
-Wako Anindo · 2022 · Strive School Solo Capstone
+Wako Anindo · Strive School Solo Capstone
